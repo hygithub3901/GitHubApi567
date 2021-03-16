@@ -1,4 +1,7 @@
 language: python
+branches:
+  only:
+  - HW05a_Mocking
 python:
   - "3.5"
 install:
