@@ -8,7 +8,8 @@ def retrive_repo(userId: str):
     if userId == '':
         return None
     userUrl = "https://api.github.com/users/" + userId + "/repos"
-    r = requests.get(userUrl)
+    proxies = { "http": None, "https": None}
+    r = requests.get(userUrl, verify=False, proxies = proxies)
     for i in range(len(r.json())):
         repoList.append(r.json()[i]['name'])
     return repoList
@@ -20,7 +21,8 @@ def retrive_commits(userId: str, repositoryName: str):
         return None
     commitNumber = 0
     repositoryUrl = "https://api.github.com/repos/" + userId + "/" + repositoryName+"/commits"
-    r = requests.get(repositoryUrl)
+    proxies = { "http": None, "https": None}
+    r = requests.get(repositoryUrl, verify=False, proxies = proxies)
     for i in range(len(r.json())):
         if r.json()[i]['commit']:
             commitNumber += 1
