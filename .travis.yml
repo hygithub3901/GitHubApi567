@@ -4,8 +4,4 @@ branches:
   - HW05a_Mocking
 python:
   - "3.5"
-install:
-  - pip install requests
-# command to run tests
-script:
- - python -m HW05 mock
+  
